@@ -6,7 +6,7 @@ type Tree struct {
 
 // NewTree creates a new empty tree.
 func NewTree() *Tree {
-	return &Tree{}
+	return &Tree{Root: NewElement()}
 }
 
 // IsEmpty returns true if the tree is empty.
