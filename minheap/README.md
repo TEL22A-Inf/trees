@@ -17,7 +17,7 @@ Definition eines *Max-Heaps* analog.
   * Daraus folgt, dass die Operationen `Insert` und `RemoveMin` in $O(log\ n)$
     ausgeführt werden können.
 * Das Minimum eines Min-Heaps ist die Wurzel.
-  * D.h. `FindMin` kann in $O(1)$ ausgeführt werden.
+  * D.h. `GetMin` kann in $O(1)$ ausgeführt werden.
 
 ## Operationen
 
@@ -32,7 +32,7 @@ Definition eines *Max-Heaps* analog.
 2. Entferne das letzte Element.
 3. Führe `BubbleDown` aus, um die Heap-Eigenschaft wiederherzustellen.
 
-### `FindMin`
+### `GetMin`
 
 1. Liefere die Wurzel.
 
