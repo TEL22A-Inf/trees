@@ -33,7 +33,7 @@ func (t *Tree) NodeCount() int {
 	return 0
 }
 
-// IsSearchTree gibt true zurück, wenn der Baum ein Binärbaum ist.
+// IsSearchTree gibt true zurück, wenn der Baum ein Suchbaum ist.
 func (t *Tree) IsSearchTree() bool {
 	// TODO
 	return false
