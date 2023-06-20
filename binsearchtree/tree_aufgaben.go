@@ -3,23 +3,7 @@ package binsearchtree
 /*
 Diese Datei enthält die Aufgaben für den Binärbaum.
 Es geht darum, weitere Methoden für den Binärbaum zu implementieren.
-
-Beachten Sie, dass diese Datei sowohl Methoden für den Baum als auch für die Elemente enthält.
 */
-
-// GetMinNode gibt das Element mit dem kleinsten Wert zurück.
-// Wenn der Baum leer ist, wird nil zurückgegeben.
-func (t *Element) GetMinNode() *Element {
-	// TODO
-	return nil
-}
-
-// GetMaxNode gibt das Element mit dem größten Wert zurück.
-// Wenn der Baum leer ist, wird nil zurückgegeben.
-func (t *Element) GetMaxNode() *Element {
-	// TODO
-	return nil
-}
 
 // RemoveValue entfernt ein Element mit dem Wert value aus dem Baum.
 // Wenn das Element nicht gefunden wird, passiert nichts.

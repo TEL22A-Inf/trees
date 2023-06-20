@@ -6,7 +6,7 @@ Beispielimplementierung eines binären Suchbaums.
 Anmerkungen zu den Aufgaben
 ---------------------------
 
-In der Datei `tree_aufgaben.go` sind einige Methoden bzw. Funktionen zu den Datentypen
+In den Dateien `tree_aufgaben.go` und `element_aufgaben.go` sind einige Methoden bzw. Funktionen zu den Datentypen
 `Tree` und `Element` vorgegeben, die Sie vervollständigen sollen.
 Dazu gibt es noch einige Anmerkungen:
 
