@@ -8,6 +8,8 @@ Es geht darum, weitere Methoden für den Binärbaum zu implementieren.
 // RemoveValue entfernt ein Element mit dem Wert value aus dem Baum.
 // Wenn das Element nicht gefunden wird, passiert nichts.
 func (t *Tree) RemoveValue(value int) {
+	// Knoten mit Wert value finden.
+	// Diesen Knoten aus seinem Teilbaum löschen, falls er nicht nil ist.
 	// TODO
 }
 

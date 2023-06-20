@@ -8,7 +8,11 @@ Es geht darum, weitere Methoden für den Binärbaum zu implementieren.
 // RemoveValue entfernt ein Element mit dem Wert value aus dem Baum.
 // Wenn das Element nicht gefunden wird, passiert nichts.
 func (t *Tree) RemoveValue(value int) {
-	// TODO
+	el := t.Root.GetNode(value)
+	if el == nil {
+		return
+	}
+	el.RemoveRoot()
 }
 
 // NodeCount gibt die Anzahl der Elemente im Baum zurück.
