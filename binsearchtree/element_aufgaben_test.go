@@ -84,12 +84,8 @@ func TestElement_GetMinNode(t *testing.T) {
 	}
 }
 
-// TestElement_GetMaxNode tests the method GetMinNode.
+// TestElement_GetMaxNode tests the method GetMaxNode.
 func TestElement_GetMaxNode(t *testing.T) {
-	// TODO
-	// Schreiben Sie diesen Test selbst.
-	// Sie können sich dabei an der Umsetzung von TestElement_GetMinNode orientieren.
-
 	// Testcase: empty tree
 	e1 := NewElement()
 	maxNode := e1.GetMaxNode()
@@ -138,5 +134,62 @@ func TestElement_GetMaxNode(t *testing.T) {
 	maxNode = e5.GetMaxNode()
 	if maxNode != e5.Right {
 		t.Error("GetMaxNode should return right child of root")
+	}
+}
+
+// TestElement_RemoveRoot tests the method RemoveRoot.
+func TestElement_RemoveRoot(t *testing.T) {
+	// Testcase: empty tree
+	e1 := NewElement()
+	e1.RemoveRoot()
+	if !e1.IsEmpty() {
+		t.Error("RemoveRoot should not change empty tree")
+	}
+
+	// Testcase: tree with one element
+	e2 := NewElement()
+	e2.SetValue(10)
+	e2.RemoveRoot()
+	if !e2.IsEmpty() {
+		t.Error("RemoveRoot should remove root element")
+	}
+
+	// Testcase: more complex tree
+	//             10
+	//           /    \
+	//          5     15
+	//         / \    / \
+	//        3   7  12  17
+	e3 := NewElement()
+	e3.SetValue(10)
+	e3.Left.SetValue(5)
+	e3.Right.SetValue(15)
+	e3.Left.Left.SetValue(3)
+	e3.Left.Right.SetValue(7)
+	e3.Right.Left.SetValue(12)
+	e3.Right.Right.SetValue(17)
+	e3.RemoveRoot()
+
+	// check tree structure
+	if e3.Value != 7 {
+		t.Error("RemoveRoot should set new root element")
+	}
+	if e3.Left.Value != 5 {
+		t.Error("RemoveRoot should leave element \"l\" unchanged")
+	}
+	if e3.Right.Value != 15 {
+		t.Error("RemoveRoot should leave element \"r\" unchanged")
+	}
+	if e3.Left.Left.Value != 3 {
+		t.Error("RemoveRoot should leave element \"ll\" unchanged")
+	}
+	if !e3.Left.Right.IsEmpty() {
+		t.Error("RemoveRoot should remove element \"lr\"")
+	}
+	if e3.Right.Left.Value != 12 {
+		t.Error("RemoveRoot should leave element \"rl\" unchanged")
+	}
+	if e3.Right.Right.Value != 17 {
+		t.Error("RemoveRoot should leave element \"rr\" unchanged")
 	}
 }
