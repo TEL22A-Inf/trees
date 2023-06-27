@@ -127,6 +127,11 @@ func RotateRight(root *Element) *Element {
 // RotateLeftRight führt eine Doppelrotation nach links aus.
 // Die Funktion erwartet die Wurzel des (Teil-)Baums und gibt die neue Wurzel zurück.
 func RotateLeftRight(root *Element) *Element {
+
+	// RotateLeftRight ist eine Kombination aus RotateLeft und RotateRight.
+	// Die Funktion muss also nur die beiden Funktionen aufrufen.
+	// Es muss zuerst um das linke Kind nach links rotiert werden, dann um den Knoten nach rechts.
+
 	// TODO
 	return nil
 }
@@ -134,6 +139,9 @@ func RotateLeftRight(root *Element) *Element {
 // RotateRightLeft führt eine Doppelrotation nach rechts aus.
 // Die Funktion erwartet die Wurzel des (Teil-)Baums und gibt die neue Wurzel zurück.
 func RotateRightLeft(root *Element) *Element {
+
+	// Analog zu RotateLeftRight, nur mit vertauschten Rollen von links und rechts.
+
 	// TODO
 	return nil
 }
