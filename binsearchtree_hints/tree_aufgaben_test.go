@@ -342,3 +342,48 @@ func TestRotateRight_complex(t *testing.T) {
 		t.Errorf("root.Right.Right should be 20, but is %d", root.Right.Right.Value)
 	}
 }
+
+func TestElement_RotateLeftRight(t *testing.T) {
+	root := NewElement()
+
+	// Expected rotation:
+	//      15               15                  12
+	//     /  \             /  \               /    \
+	//    10  20           12  20            10      15
+	//   /  \      -->    /  \        -->   /  \    /  \
+	//  5    12          10   14           5    11 14   20
+	//      /  \        / \
+	//     11  	14     5   11
+	root.Insert(15)
+	root.Insert(10)
+	root.Insert(20)
+	root.Insert(5)
+	root.Insert(12)
+	root.Insert(11)
+	root.Insert(14)
+
+	root = RotateLeftRight(root)
+
+	// Check structure:
+	if root.Value != 12 {
+		t.Errorf("root should be 12, but is %d", root.Value)
+	}
+	if root.Left.Value != 10 {
+		t.Errorf("root.Left should be 10, but is %d", root.Left.Value)
+	}
+	if root.Right.Value != 15 {
+		t.Errorf("root.Right should be 15, but is %d", root.Right.Value)
+	}
+	if root.Left.Left.Value != 5 {
+		t.Errorf("root.Left.Left should be 5, but is %d", root.Left.Left.Value)
+	}
+	if root.Left.Right.Value != 11 {
+		t.Errorf("root.Left.Right should be 11, but is %d", root.Left.Right.Value)
+	}
+	if root.Right.Left.Value != 14 {
+		t.Errorf("root.Right.Left should be 14, but is %d", root.Right.Left.Value)
+	}
+	if root.Right.Right.Value != 20 {
+		t.Errorf("root.Right.Right should be 20, but is %d", root.Right.Right.Value)
+	}
+}
