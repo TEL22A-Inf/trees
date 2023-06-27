@@ -30,8 +30,21 @@ func (e *Element) NodeCount() int {
 
 // IsSearchTree gibt true zurück, wenn der Baum ein Suchbaum ist.
 func (t *Tree) IsSearchTree() bool {
-	// TODO
-	return false
+	return t.Root.IsSearchTree()
+}
+
+// Hilfsfunktion, um IsSearchTree rekursiv in Element umsetzen zu können.
+func (e *Element) IsSearchTree() bool {
+	if e.IsEmpty() {
+		return true
+	}
+	if !e.Left.IsEmpty() && e.Left.Value > e.Value {
+		return false
+	}
+	if !e.Right.IsEmpty() && e.Right.Value < e.Value {
+		return false
+	}
+	return e.Left.IsSearchTree() && e.Right.IsSearchTree()
 }
 
 // Height gibt die Höhe des Baums zurück.

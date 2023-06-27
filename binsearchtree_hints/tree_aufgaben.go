@@ -21,6 +21,24 @@ func (t *Tree) NodeCount() int {
 
 // IsSearchTree gibt true zurück, wenn der Baum ein Suchbaum ist.
 func (t *Tree) IsSearchTree() bool {
+
+	// Ein Baum ist genau dann *kein* Suchbaum, wenn es ein Element gibt,
+	// das größer ist als sein rechtes Kind oder kleiner als sein linkes Kind.
+	// D.h. wir müssen prüfen, ob es ein solches Element gibt.
+
+	// Das geht am einfachsten rekursiv, also mit einer Hilfsfunktion in Element.
+	// Diese muss prüfen, ob das Element leer ist, dann ist es ein Suchbaum.
+	// Ansonsten muss es prüfen, ob das Element größer ist als sein linkes Kind
+	// oder kleiner als sein rechtes Kind. Wenn ja, ist es kein Suchbaum.
+	// Dabei darf diese Prüfung nur ausgeführt werden, wenn das Kind nicht leer ist.
+	// Ansonsten ist es ein Suchbaum, wenn beide Kinder Suchbäume sind.
+
+	// TODO
+	return false
+}
+
+// Hilfsfunktion, um IsSearchTree rekursiv in Element umsetzen zu können.
+func (e *Element) IsSearchTree() bool {
 	// TODO
 	return false
 }

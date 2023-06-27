@@ -78,3 +78,40 @@ func TestTree_NodeCount(t *testing.T) {
 		t.Errorf("NodeCount should return 7 for the given tree, but returned %d", tree.NodeCount())
 	}
 }
+
+func TestTree_IsSearchTree(t *testing.T) {
+	// Testcase: empty tree
+	tree := NewTree()
+	if !tree.IsSearchTree() {
+		t.Error("IsSearchTree should return true for an empty tree")
+	}
+
+	// Testcase: tree with one element
+	tree = NewTree()
+	tree.Insert(10)
+	if !tree.IsSearchTree() {
+		t.Error("IsSearchTree should return true for a tree with one element")
+	}
+
+	// Testcase: more complex tree
+	tree = NewTree()
+	tree.Insert(10)
+	tree.Insert(5)
+	tree.Insert(15)
+	tree.Insert(12)
+	tree.Insert(17)
+	tree.Insert(7)
+	tree.Insert(3)
+	if !tree.IsSearchTree() {
+		t.Error("IsSearchTree should return true for the given tree")
+	}
+
+	// Testcase: tree with wrong order
+	tree = NewTree()
+	tree.Insert(10)
+	tree.Insert(5)
+	tree.Root.Right.SetValue(3)
+	if tree.IsSearchTree() {
+		t.Error("IsSearchTree should return false for the given tree")
+	}
+}
