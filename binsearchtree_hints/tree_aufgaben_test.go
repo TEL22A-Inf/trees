@@ -156,3 +156,41 @@ func TestElement_Height(t *testing.T) {
 		t.Errorf("Height should return %d, but returned %d", expectedheight, actualheight)
 	}
 }
+
+func TestElement_BalanceFactor(t *testing.T) {
+	root := NewElement()
+
+	actualbalance := root.BalanceFactor()
+	expectedbalance := 0
+	if actualbalance != expectedbalance {
+		t.Errorf("BalanceFactor should return %d, but returned %d", expectedbalance, actualbalance)
+	}
+
+	root.Insert(10)
+	actualbalance = root.BalanceFactor()
+	expectedbalance = 0
+	if actualbalance != expectedbalance {
+		t.Errorf("BalanceFactor should return %d, but returned %d", expectedbalance, actualbalance)
+	}
+
+	root.Insert(5)
+	actualbalance = root.BalanceFactor()
+	expectedbalance = -1
+	if actualbalance != expectedbalance {
+		t.Errorf("BalanceFactor should return %d, but returned %d", expectedbalance, actualbalance)
+	}
+
+	root.Insert(15)
+	actualbalance = root.BalanceFactor()
+	expectedbalance = 0
+	if actualbalance != expectedbalance {
+		t.Errorf("BalanceFactor should return %d, but returned %d", expectedbalance, actualbalance)
+	}
+
+	root.Insert(12)
+	actualbalance = root.BalanceFactor()
+	expectedbalance = 1
+	if actualbalance != expectedbalance {
+		t.Errorf("BalanceFactor should return %d, but returned %d", expectedbalance, actualbalance)
+	}
+}

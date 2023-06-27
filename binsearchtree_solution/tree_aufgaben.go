@@ -71,8 +71,16 @@ func max(a, b int) int {
 
 // BalanceFactor gibt den Balancefaktor des Knotens zurück.
 func (e *Element) BalanceFactor() int {
-	// TODO
-	return 0
+	if e.IsEmpty() {
+		return 0
+	}
+	return e.Right.Height() - e.Left.Height()
+
+	// Anmerkung: Diese Funktion ist zwar korrekt, aber ineffizient.
+	// Sie ruft Height auf, das den Baum rekursiv durchläuft.
+	// D.h. sie braucht in jedem Fall O(n) Zeit.
+	// Besser wäre es, die Höhe bei der Einfügeoperation zu berechnen
+	// und in jedem Knoten zu speichern.
 }
 
 // RotateLeft rotiert den Baum nach links.

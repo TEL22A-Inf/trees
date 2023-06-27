@@ -78,6 +78,11 @@ func (t *Element) Height() int {
 
 // BalanceFactor gibt den Balancefaktor des Knotens zurück.
 func (e *Element) BalanceFactor() int {
+
+	// Der Balancefaktor ist die Differenz der Höhen der Teilbäume.
+	// Genauer gesagt ist es die Höhe des rechten Teilbaums minus die Höhe des linken Teilbaums.
+	// Diese Funktion muss nicht rekurisv sein, da Height schon in Element definiert ist.
+
 	// TODO
 	return 0
 }
