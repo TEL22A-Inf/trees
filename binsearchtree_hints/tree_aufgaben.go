@@ -59,6 +59,12 @@ func (e *Element) IsSearchTree() bool {
 	return false
 }
 
+/** ACHTUNG: Ab hier sind die Funktionen alle in Element definiert.
+ * Das ist eigentlich ein Fehler, sie sollten besser in element.go stehen.
+ * Aber da ich die Aufgaben schon mehrfach angepasst habe und weitere Verwirrung
+ * vermeiden möchte, lasse ich es jetzt so.
+**/
+
 // Height gibt die Höhe des Baums zurück.
 func (t *Element) Height() int {
 
