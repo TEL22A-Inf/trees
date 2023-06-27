@@ -50,3 +50,31 @@ func TestTree_RemoveValue(t *testing.T) {
 		t.Error("RemoveValue should leave element \"rr\" unchanged")
 	}
 }
+
+func TestTree_NodeCount(t *testing.T) {
+	// Testcase: empty tree
+	tree := NewTree()
+	if tree.NodeCount() != 0 {
+		t.Error("NodeCount should return 0 for an empty tree")
+	}
+
+	// Testcase: tree with one element
+	tree = NewTree()
+	tree.Insert(10)
+	if tree.NodeCount() != 1 {
+		t.Errorf("NodeCount should return 1 for a tree with one element, but returned %d", tree.NodeCount())
+	}
+
+	// Testcase: more complex tree
+	tree = NewTree()
+	tree.Insert(10)
+	tree.Insert(5)
+	tree.Insert(15)
+	tree.Insert(12)
+	tree.Insert(17)
+	tree.Insert(7)
+	tree.Insert(3)
+	if tree.NodeCount() != 7 {
+		t.Errorf("NodeCount should return 7 for the given tree, but returned %d", tree.NodeCount())
+	}
+}

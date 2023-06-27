@@ -17,8 +17,15 @@ func (t *Tree) RemoveValue(value int) {
 
 // NodeCount gibt die Anzahl der Elemente im Baum zurück.
 func (t *Tree) NodeCount() int {
-	// TODO
-	return 0
+	return t.Root.NodeCount()
+}
+
+// Hilfsfunktion, um NodeCount rekursiv in Element umsetzen zu können.
+func (e *Element) NodeCount() int {
+	if e.IsEmpty() {
+		return 0
+	}
+	return 1 + e.Left.NodeCount() + e.Right.NodeCount()
 }
 
 // IsSearchTree gibt true zurück, wenn der Baum ein Suchbaum ist.
