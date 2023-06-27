@@ -61,6 +61,11 @@ func (e *Element) IsSearchTree() bool {
 
 // Height gibt die Höhe des Baums zurück.
 func (t *Element) Height() int {
+
+	// Die Höhe des Baums ist die maximale Höhe der Teilbäume plus 1 (für die Wurzel).
+	// Auch diese Funktion lässt sich am einfachsten rekursiv lösen.
+	// Es wird aber keine Hilfsfunktion benötigt, da Height schon in Element definiert ist.
+
 	// TODO
 	return 0
 }

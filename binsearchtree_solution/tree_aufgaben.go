@@ -49,8 +49,18 @@ func (e *Element) IsSearchTree() bool {
 
 // Height gibt die Höhe des Baums zurück.
 func (t *Element) Height() int {
-	// TODO
-	return 0
+	if t.IsEmpty() {
+		return 0
+	}
+	return 1 + max(t.Left.Height(), t.Right.Height())
+}
+
+// max gibt das Maximum von a und b zurück.
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
 }
 
 // BalanceFactor gibt den Balancefaktor des Knotens zurück.

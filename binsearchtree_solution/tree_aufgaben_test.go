@@ -1,6 +1,8 @@
 package binsearchtree
 
-import "testing"
+import (
+	"testing"
+)
 
 func TestTree_RemoveValue(t *testing.T) {
 	// Testcase: empty tree
@@ -113,5 +115,46 @@ func TestTree_IsSearchTree(t *testing.T) {
 	tree.Root.Right.SetValue(3)
 	if tree.IsSearchTree() {
 		t.Error("IsSearchTree should return false for the given tree")
+	}
+}
+
+func TestElement_Height(t *testing.T) {
+	root := NewElement()
+
+	actualheight := root.Height()
+	expectedheight := 0
+	if actualheight != expectedheight {
+		t.Errorf("Height should return %d, but returned %d", expectedheight, actualheight)
+	}
+
+	root.Insert(10)
+	actualheight = root.Height()
+	expectedheight = 1
+	if actualheight != expectedheight {
+		t.Errorf("Height should return %d, but returned %d", expectedheight, actualheight)
+	}
+
+	root.Insert(5)
+
+	actualheight = root.Height()
+	expectedheight = 2
+	if actualheight != expectedheight {
+		t.Errorf("Height should return %d, but returned %d", expectedheight, actualheight)
+	}
+
+	root.Insert(15)
+
+	actualheight = root.Height()
+	expectedheight = 2
+	if actualheight != expectedheight {
+		t.Errorf("Height should return %d, but returned %d", expectedheight, actualheight)
+	}
+
+	root.Insert(12)
+
+	actualheight = root.Height()
+	expectedheight = 3
+	if actualheight != expectedheight {
+		t.Errorf("Height should return %d, but returned %d", expectedheight, actualheight)
 	}
 }
