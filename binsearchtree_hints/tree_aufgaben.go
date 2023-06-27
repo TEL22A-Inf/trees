@@ -90,6 +90,26 @@ func (e *Element) BalanceFactor() int {
 // RotateLeft rotiert den Baum nach links.
 // Die Funktion erwartet die Wurzel des (Teil-)Baums und gibt die neue Wurzel zurück.
 func RotateLeft(root *Element) *Element {
+
+	// Spezialfall: Leerer Baum. Hier kann nichts rotiert werden.
+
+	// Ausgangssituation:
+	//          A
+	//         / \
+	//        B   C
+	//           / \
+	//          D   E
+
+	// Ergebnis nach der Rotation:
+	//          C
+	//         / \
+	//        A   E
+	//       / \
+	//      B   D
+
+	// Speichern Sie die Knoten wie in der Ausgangssituation gezeigt in Variablen.
+	// Ändern Sie dann die Pointer so, dass die Knoten wie in der Ergebnissituation gezeigt verbunden sind.
+
 	// TODO
 	return nil
 }

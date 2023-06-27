@@ -194,3 +194,77 @@ func TestElement_BalanceFactor(t *testing.T) {
 		t.Errorf("BalanceFactor should return %d, but returned %d", expectedbalance, actualbalance)
 	}
 }
+
+func TestRotateLeft_simple(t *testing.T) {
+	root := NewElement()
+
+	// Structure before rotation:
+	//      10
+	//        \
+	//         15
+	//           \
+	//            20
+	root.Insert(10)
+	root.Insert(15)
+	root.Insert(20)
+
+	root = RotateLeft(root)
+
+	// Expected structure after rotation:
+	//      15
+	//     /  \
+	//    10  20
+
+	// Check structure:
+	if root.Value != 15 {
+		t.Errorf("root should be 15, but is %d", root.Value)
+	}
+	if root.Left.Value != 10 {
+		t.Errorf("root.Left should be 10, but is %d", root.Left.Value)
+	}
+	if root.Right.Value != 20 {
+		t.Errorf("root.Right should be 20, but is %d", root.Right.Value)
+	}
+}
+
+func TestRotateLeft_complex(t *testing.T) {
+	root := NewElement()
+
+	// Structure before rotation:
+	//      10
+	//     /  \
+	//    5    15
+	//        /  \
+	//       12   20
+	root.Insert(10)
+	root.Insert(5)
+	root.Insert(15)
+	root.Insert(20)
+	root.Insert(12)
+
+	root = RotateLeft(root)
+
+	// Expected structure after rotation:
+	//      15
+	//     /  \
+	//    10  20
+	//   /  \
+	//  5    12
+
+	// Check structure:
+	if root.Value != 15 {
+		t.Errorf("root should be 15, but is %d", root.Value)
+	}
+	if root.Left.Value != 10 {
+		t.Errorf("root.Left should be 10, but is %d", root.Left.Value)
+	}
+	if root.Right.Value != 20 {
+		t.Errorf("root.Right should be 20, but is %d", root.Right.Value)
+	}
+	if root.Left.Left.Value != 5 {
+		t.Errorf("root.Left.Left should be 5, but is %d", root.Left.Left.Value)
+	}
+	if root.Left.Right.Value != 12 {
+		t.Errorf("root.Left.Right should be 12, but is %d", root.Left.Right.Value)
+	}
+}

@@ -86,8 +86,32 @@ func (e *Element) BalanceFactor() int {
 // RotateLeft rotiert den Baum nach links.
 // Die Funktion erwartet die Wurzel des (Teil-)Baums und gibt die neue Wurzel zurück.
 func RotateLeft(root *Element) *Element {
-	// TODO
-	return nil
+	// Spezialfall: Leerer Baum. Hier kann nichts rotiert werden.
+	if root.IsEmpty() {
+		return root
+	}
+
+	// Ausgangssituation:
+	//          A
+	//         / \
+	//        B   C
+	//           / \
+	//          D   E
+	A := root
+	C := root.Right
+	D := C.Left
+	// (B und E müssen wir uns nicht merken, ihre Position ändert sich nicht)
+
+	// Ergebnis nach der Rotation:
+	//          C
+	//         / \
+	//        A   E
+	//       / \
+	//      B   D
+	C.Left = A
+	A.Right = D
+
+	return C
 }
 
 // RotateRight rotiert den Baum nach rechts.
