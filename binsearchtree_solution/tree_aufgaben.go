@@ -117,8 +117,33 @@ func RotateLeft(root *Element) *Element {
 // RotateRight rotiert den Baum nach rechts.
 // Die Funktion erwartet die Wurzel des (Teil-)Baums und gibt die neue Wurzel zurück.
 func RotateRight(root *Element) *Element {
-	// TODO
-	return nil
+
+	// Spezialfall: Leerer Baum. Hier kann nichts rotiert werden.
+	if root.IsEmpty() {
+		return root
+	}
+
+	// Ausgangssituation:
+	//          A
+	//         / \
+	//        B   C
+	//       / \
+	//      D   E
+	A := root
+	B := root.Left
+	E := B.Right
+	// (D und C müssen wir uns nicht merken, ihre Position ändert sich nicht)
+
+	// Ergebnis nach der Rotation:
+	//          B
+	//         / \
+	//        D   A
+	//           / \
+	//          E   C
+	B.Right = A
+	A.Left = E
+
+	return B
 }
 
 // RotateLeftRight führt eine Doppelrotation nach links aus.

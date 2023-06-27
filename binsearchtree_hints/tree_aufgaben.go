@@ -117,6 +117,9 @@ func RotateLeft(root *Element) *Element {
 // RotateRight rotiert den Baum nach rechts.
 // Die Funktion erwartet die Wurzel des (Teil-)Baums und gibt die neue Wurzel zurück.
 func RotateRight(root *Element) *Element {
+
+	// Analog zu RotateLeft, nur mit vertauschten Rollen von links und rechts.
+
 	// TODO
 	return nil
 }
