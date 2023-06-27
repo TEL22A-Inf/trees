@@ -15,6 +15,22 @@ func (t *Tree) RemoveValue(value int) {
 
 // NodeCount gibt die Anzahl der Elemente im Baum zurück.
 func (t *Tree) NodeCount() int {
+
+	// Die Anzahl der Elemente im Baum ist die Anzahl der Elemente im linken Teilbaum
+	// plus die Anzahl der Elemente im rechten Teilbaum plus 1 (für die Wurzel).
+
+	// Dies lässt sich am einfachsten rekursiv lösen.
+	// Diese Funktion hier in Tree kann aber nicht rekursiv sein, da sie
+	// die Rekursion mit dem gleichen Typ (Tree) aufrufen müsste.
+	// Daher wird eine Hilfsfunktion in Element benötigt, die rekursiv ist.
+	// Ein Stub dafür ist unten vorgegeben.
+
+	// TODO
+	return 0
+}
+
+// Hilfsfunktion, um NodeCount rekursiv in Element umsetzen zu können.
+func (e *Element) NodeCount() int {
 	// TODO
 	return 0
 }
